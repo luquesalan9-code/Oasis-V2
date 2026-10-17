@@ -1,0 +1,39 @@
+# OASIS V2 — Segredos e artefatos locais
+# Protege .env, node_modules/ e data/ sem apagar dados existentes.
+
+# Credenciais e configurações locais (NUNCA commitar)
+.env
+.env.*
+!.env.example
+
+# Dependências
+node_modules/
+
+# Persistência local (JSON de estado, backups)
+data/
+*.backup.json
+
+# Relatórios locais sensíveis
+*.log
+
+# Backups locais e versões de recuperação (podem conter segredos ou código obsoleto)
+.backups/
+*.orig
+*.backup*
+*.corrupted
+*.alt
+*.basefix
+*.cb
+*.fixed
+*.new
+*.old
+*.tmp
+
+# Cobertura e cache de testes
+.coverage/
+coverage/
+.cache/
+
+# Build artifacts
+dist/
+build/
