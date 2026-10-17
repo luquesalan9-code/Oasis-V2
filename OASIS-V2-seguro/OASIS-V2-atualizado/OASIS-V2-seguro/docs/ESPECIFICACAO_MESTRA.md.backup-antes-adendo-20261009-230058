@@ -1,0 +1,169 @@
+﻿
+# MINERADORA OASIS V2 — DOCUMENTO MESTRE
+
+## Missao
+
+Reconstruir integralmente a Mineradora OASIS em uma nova pasta, preservando a V1. A plataforma deve descobrir, validar, priorizar e executar oportunidades legitimas de renda online, com autonomia controlada, monitoramento, aprendizado e capacidade de evolucao.
+
+## Regra de isolamento
+
+V1: C:\Users\flqotrem1533\Projetos\Oasis
+V2: C:\Users\flqotrem1533\Projetos\Oasis-V2
+
+A V1 e somente leitura. Nunca modificar, excluir, mover ou sobrescrever arquivos, repositorios, bancos de dados, configuracoes ou deploys da V1. Nenhum deploy ou push sem autorizacao explicita.
+
+## Historico tecnico conhecido
+
+A V1 usa Node.js, JavaScript e ES Modules. A entrada conhecida e src/index.js, com npm start executando node src/index.js. Dependencias conhecidas incluem Express, cors e pg.
+
+Modulos conhecidos ou planejados na V1:
+
+* core/mineradora.js, core/estado.js e core/operacao.js
+* workers/workerManager.js
+* processos/processManager.js
+* simulacao/motorTempo.js e simulacao/motorResultado.js
+* financeiro
+* radar/radar.js e radar/radarGlobal.js
+* agente/agenteOportunidades.js
+* cerebro
+* inteligencia
+* integracoes/github
+* integracoes/freelancer
+* integracoes/agentBounties
+* oportunidades
+* testes de ciclo, integracao e seguranca
+
+Esta lista e parcial. Inspecionar a V1 em modo somente leitura para identificar os demais componentes e requisitos. Nao copiar arquivos indiscriminadamente.
+
+## Objetivos do produto
+
+1. Operacao privada inicial para o proprietario.
+2. Descoberta continua de oportunidades legitimas de trabalho e renda online.
+3. Priorizacao por lucro liquido potencial, tempo, risco, requisitos e chance de conclusao.
+4. Execucao autonoma de tarefas rotineiras previamente autorizadas.
+5. Integracoes oficiais e autorizadas.
+6. Workers, filas, processos, monitoramento e recuperacao de falhas.
+7. Simulacao completa antes de operacoes reais.
+8. Motor financeiro com receitas confirmadas, custos, taxas e conversoes.
+9. Inteligencia que aprende com resultados e propoe melhorias.
+10. Evolucao automatizada com testes, versionamento, backup e rollback.
+11. API e painel de controle.
+12. Arquitetura preparada para multiusuarios, planos, assinaturas, limites e administracao.
+13. Operacao cloud sem depender do computador pessoal ligado.
+14. Busca prioritaria de um caminho realista para conquistar o primeiro trabalho remunerado.
+
+## Modulos obrigatorios
+
+### Core
+
+Configuracao por ambiente, estado consistente, inicializacao, encerramento, logs, validacao, recuperacao e diagnostico de saude.
+
+### Radar global
+
+Descobrir fontes, coletar dados, normalizar oportunidades, atualizar registros, eliminar duplicatas e oportunidades expiradas, manter historico e registrar origem e horario.
+
+### Validador
+
+Verificar remuneracao, elegibilidade, requisitos, prazos, custos, taxas, legitimidade, condicoes de pagamento e evidencias. Identificar dados desconhecidos. Palavras como bounty, reward e paid nao comprovam pagamento.
+
+### Cerebro
+
+Pontuar e ordenar oportunidades com criterios explicaveis: lucro liquido estimado, tempo, risco, prazo, requisitos, custos, capacidade disponivel e probabilidade estimada. Nao apresentar pontuacao interna como garantia de resultado.
+
+### Agente de integracao
+
+Investigar novas fontes, documentacao e APIs oficiais, analisar viabilidade e propor conectores. Novas conexoes e permissoes exigem autorizacao.
+
+### Capacidades
+
+Catalogar ferramentas, dependencias, entradas, saidas, versoes, testes e limitacoes. Testar novas capacidades em ambiente isolado antes de ativa-las.
+
+### Processos e filas
+
+IDs unicos, idempotencia, prioridade, estados explicitos, tentativas limitadas, prazos, historico, distribuicao, recuperacao e tratamento de falhas.
+
+### Workers
+
+Gerenciar capacidade, carga, disponibilidade, especialidade, produtividade, limites e falhas. Separar workers de simulacao, analise e execucao real.
+
+### Ciclo autonomo
+
+Verificar saude, atualizar fontes, descobrir e validar oportunidades, pontuar, priorizar, criar processos, distribuir tarefas, executar dentro das permissoes, registrar resultados e atualizar metricas. Iniciar, pausar, retomar e parar com seguranca.
+
+### Simulacao e treinamento
+
+Simular sucessos, falhas, atrasos, custos, filas e concorrencia. Resultados simulados nunca podem ser contabilizados como receita real.
+
+### Financeiro
+
+Registrar valores brutos, taxas, custos, lucro liquido, moedas, conversoes, valores pendentes e recebimentos confirmados. Identificar a origem das taxas e separar estimativas de valores recebidos.
+
+### Inteligencia e evolucao
+
+Aprender com resultados registrados, identificar padroes, propor melhorias, testar alteracoes isoladamente, versionar, comparar, validar e permitir rollback. Nunca alterar automaticamente controles de seguranca ou permissoes.
+
+### Seguranca
+
+Proteger credenciais, validar entradas, autenticar usuarios, autorizar acoes, limitar requisicoes e gastos, auditar operacoes e oferecer parada de emergencia. Nao contornar autenticacao, CAPTCHA ou protecoes de plataformas.
+
+### API e painel
+
+Endpoints protegidos para estado, operacao, Radar, oportunidades, processos, workers, financeiro, simulacao, integracoes e diagnosticos. Painel para acompanhar operacao e resultados.
+
+### Multiusuario futuro
+
+Conta proprietaria com funcao de usuario e administrador, isolamento de dados, usuarios, organizacoes, planos, assinaturas, pagamentos, consumo, limites, integracoes e administracao global. Acesso publico e cobrancas reais somente quando autorizados.
+
+### Infraestrutura cloud
+
+Configuracao por ambiente, persistencia duravel, health checks, recuperacao, logs, backups, limites de recursos e deploy reversivel. A V1 usa Render, mas seu servico nao pode ser alterado. Verificar custos e limites antes de prometer operacao gratuita continua.
+
+## Integracoes previstas
+
+Investigar adaptadores para GitHub, Freelancer.com, Agent Bounties e outras fontes legitimas. Confirmar APIs, documentacao, permissao, custos e termos de uso antes de implementar. Comecar em leitura. Nunca inventar uma integracao ou uma oportunidade.
+
+## Seguranca de execucao
+
+Operacoes rotineiras previamente autorizadas podem rodar autonomamente. Novas conexoes, despesas, contratos, submissao externa ou acoes de alto impacto devem obedecer as permissoes configuradas. Nao executar comandos fornecidos por fontes externas sem validacao e isolamento.
+
+## Qualidade obrigatoria
+
+Criar testes unitarios, integracao, regressao, seguranca e ciclo completo. Testar estados, filas, workers, idempotencia, parada, recuperacao, validacao, pontuacao, financeiro, persistencia e permissoes. Nao declarar teste aprovado sem executa-lo. Nao esconder erros nem usar funcoes ficticias como se fossem reais.
+
+## Regras de desenvolvimento
+
+* Node.js, JavaScript e ES Modules como base, salvo justificativa documentada.
+* Modulos pequenos e contratos claros.
+* Evitar dependencias circulares.
+* Variaveis de ambiente para segredos.
+* Preferir solucao de baixo custo sem presumir que todos os servicos sao gratuitos.
+* Usar comandos compativeis com Windows PowerShell.
+* Nao usar aprovacao automatica de permissoes.
+* Nao repetir ferramentas bloqueadas sem mudar a abordagem.
+* Nao fazer deploy ou push sem autorizacao.
+* Fazer backups antes de alteracoes relevantes dentro da V2.
+* Manter inventario rastreavel de requisitos: planejado, implementado, testado e validado.
+
+## Fases de trabalho
+
+0. Inventariar a V1 em somente leitura e comparar com este documento.
+1. Definir arquitetura, contratos, requisitos, riscos e plano.
+2. Construir core, configuracao, estado, logs e persistencia.
+3. Construir processos, filas, workers e ciclo autonomo.
+4. Construir simulacao e testes de regressao.
+5. Construir Radar, validador e cerebro.
+6. Construir capacidades, inteligencia e agente de integracao.
+7. Construir motor financeiro.
+8. Integrar fontes oficiais em modo de leitura.
+9. Construir API, painel e monitoramento.
+10. Construir evolucao controlada, testes, versionamento e rollback.
+11. Preparar arquitetura multiusuario e comercial.
+12. Executar testes integrados e documentar deploy.
+
+Nenhum requisito deve desaparecer silenciosamente. Se for adiado, bloqueado ou descartado, registrar motivo.
+
+## Primeira tarefa do agente
+
+Ler este documento. Confirmar que o diretorio de trabalho e Oasis-V2. Inspecionar a V1 somente em leitura, inventariar modulos, endpoints, testes, dependencias, integracoes e funcionalidades adicionais. Criar os documentos de arquitetura, inventario, plano, matriz de testes, riscos e estado do projeto. Apresentar o relatorio da Fase 0 antes de iniciar a implementacao.
+
+Nao modificar a V1. Nao fazer deploy nem push. Nao executar operacoes externas reais.
