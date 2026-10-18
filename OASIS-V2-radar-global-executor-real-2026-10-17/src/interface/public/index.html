@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#061629">
+    <meta name="description" content="Painel operacional em tempo real da OASIS V2">
+    <title>OASIS V2 · Painel operacional</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js?v=20261017.5" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#inicio" aria-label="OASIS, início">
+          <span class="brand-mark" aria-hidden="true"><i></i></span>
+          <span><strong>OASIS</strong><small>MINERADORA INTELIGENTE</small></span>
+        </a>
+        <nav class="nav-list" aria-label="Navegação principal">
+          <a class="nav-link active" data-page="inicio" href="#inicio"><span class="nav-icon">⌂</span>Início</a>
+          <a class="nav-link" data-page="atividade" href="#atividade"><span class="nav-icon">◉</span>Atividade</a>
+          <a class="nav-link" data-page="radar" href="#radar"><span class="nav-icon">◎</span>Radar</a>
+          <a class="nav-link" data-page="processos" href="#processos"><span class="nav-icon">⚙</span>Processos</a>
+          <a class="nav-link" data-page="workers" href="#workers"><span class="nav-icon">♧</span>Workers</a>
+          <a class="nav-link" data-page="financeiro" href="#financeiro"><span class="nav-icon">＄</span>Financeiro</a>
+          <a class="nav-link" data-page="carteira" href="#carteira"><span class="nav-icon">▣</span>Carteira</a>
+          <a class="nav-link" data-page="prontidao" href="#prontidao"><span class="nav-icon">△</span>Prontidão real</a>
+          <a class="nav-link" data-page="mineradora" href="#mineradora"><span class="nav-icon">⚙</span>Config. mineradora</a>
+          <a class="nav-link" data-page="interface" href="#interface"><span class="nav-icon">▣</span>Config. interface</a>
+        </nav>
+        <div class="sidebar-foot"><span class="live-dot"></span><span>Somente dados reais</span><small>OASIS V2</small></div>
+      </aside>
+
+      <main class="main-area" id="inicio">
+        <header class="topbar">
+          <button class="menu-button" id="menu-button" aria-label="Abrir menu">☰</button>
+          <div class="system-state">
+            <span class="live-dot" id="connection-dot"></span>
+            <div><strong id="connection-label">Verificando OASIS</strong><small id="operation-label">Conectando ao servidor local</small></div>
+          </div>
+          <div class="topbar-actions">
+            <span class="updated-label" id="updated-at">Aguardando atualização</span>
+            <button class="icon-button" id="refresh-button" title="Atualizar agora" aria-label="Atualizar agora">↻</button>
+            <button class="user-button" id="logout-button" title="Sair" aria-label="Sair">●</button>
+          </div>
+        </header>
+
+        <div class="page-content">
+          <section class="page-view" data-page-view="inicio">
+          <section class="page-heading">
+            <div><p class="eyebrow">PAINEL OPERACIONAL</p><h1>Visão geral</h1><p class="subheading">Acompanhe o estado real do sistema. Ajuste a atualização em Config. interface.</p></div>
+            <span class="mode-pill"><span class="live-dot"></span> MODO REAL</span>
+          </section>
+
+          <section class="overview-grid" aria-label="Resumo operacional">
+            <article class="panel balance-panel">
+              <div class="panel-kicker"><span class="round-icon teal">＄</span><span>RECEBIMENTOS CONFIRMADOS</span></div>
+              <div class="balance-value" id="confirmed-balance">—</div>
+              <p class="muted">Valores com aprovação e evidência verificada</p>
+              <div class="balance-foot" id="confirmed-breakdown">Entre para consultar os dados do sistema.</div>
+            </article>
+            <article class="panel workers-summary" id="workers-summary">
+              <div class="panel-title"><span class="round-icon blue">♧</span><h2>Workers</h2></div>
+              <div class="worker-total"><strong id="worker-total">—</strong><span>registrados</span></div>
+              <div class="worker-counts"><div><strong id="worker-available">—</strong><span>Disponíveis</span></div><div><strong id="worker-busy">—</strong><span>Ocupados</span></div></div>
+              <p class="muted" id="worker-note">Nenhum número demonstrativo é exibido.</p>
+            </article>
+            <article class="panel activity-chart-panel" id="atividade">
+              <div class="section-title"><div><h2>Atividade ao vivo</h2><p class="muted">Leituras observadas desde que o painel foi aberto</p></div><span class="live-tag">AO VIVO</span></div>
+              <div class="chart-legend"><span><i class="legend-dot cyan"></i>Processos</span><span><i class="legend-dot teal-dot"></i>Concluídos</span><span><i class="legend-dot violet"></i>Workers ocupados</span></div>
+              <svg class="activity-chart" id="activity-chart" viewBox="0 0 620 170" role="img" aria-label="Histórico recente de processos e workers observados"></svg>
+              <div class="chart-caption"><span>Primeira leitura</span><span>Agora</span></div>
+            </article>
+          </section>
+
+          <section class="content-grid">
+            <div class="main-column">
+              <article class="panel feed-panel">
+                <div class="section-title"><div><h2>Atividade em tempo real</h2><p class="muted">Eventos de processos registrados no sistema</p></div><a class="text-link" href="#processos">Ver processos ↓</a></div>
+                <div class="event-list" id="event-list"><div class="empty-state">Faça login para carregar os eventos reais.</div></div>
+              </article>
+
+              <article class="panel table-panel" id="processos">
+                <div class="section-title"><div><h2>Processos</h2><p class="muted" id="process-count">Aguardando dados</p></div><div class="table-controls"><input id="process-search" type="search" placeholder="Buscar processo" aria-label="Buscar processo"><select id="process-filter" aria-label="Filtrar processos"><option value="todos">Todos</option><option value="ativos">Em andamento</option><option value="QUARENTENA">Quarentena</option><option value="CONCLUIDO">Concluídos</option><option value="FALHOU">Falhas</option></select></div></div>
+                <div class="table-scroll"><table><thead><tr><th>Processo</th><th>Fonte</th><th>Status</th><th>Estimativa*</th><th>Atualizado</th></tr></thead><tbody id="process-table"><tr><td colspan="5" class="empty-state">Faça login para carregar processos.</td></tr></tbody></table></div>
+                <p class="table-footnote">* Estimativas não são receita. Só recebimentos confirmados aparecem no saldo.</p>
+              </article>
+
+              <article class="panel table-panel" id="workers">
+                <div class="section-title"><div><h2>Workers reais</h2><p class="muted" id="workers-caption">Recursos registrados no sistema</p></div></div>
+                <div class="table-scroll"><table><thead><tr><th>Worker</th><th>Especialidade</th><th>Status</th><th>Capacidade</th></tr></thead><tbody id="worker-table"><tr><td colspan="4" class="empty-state">Faça login para carregar workers.</td></tr></tbody></table></div>
+              </article>
+            </div>
+
+            <aside class="side-column">
+              <article class="panel readiness-panel" id="prontidao">
+                <div class="panel-title"><span class="round-icon amber">△</span><h2>Prontidão real</h2></div>
+                <div class="readiness-state" id="readiness-state">Aguardando verificação</div>
+                <p class="muted" id="readiness-copy">O painel não inicia tarefas nem inventa resultados.</p>
+                <ul class="blocker-list" id="blocker-list"><li>Entre para consultar os bloqueios.</li></ul>
+                <div class="operation-actions">
+                  <button class="action-button primary-action" id="start-operation" type="button" disabled>Iniciar automação</button>
+                  <button class="action-button stop-action" id="stop-operation" type="button" disabled>Parar automação</button>
+                </div>
+              </article>
+
+              <article class="panel compact-panel" id="radar">
+                <div class="section-title"><div class="panel-title"><span class="round-icon blue">◎</span><h2>Radar</h2></div><button class="action-button" id="run-radar" type="button" disabled>Consultar agora</button></div>
+                <div class="metric-pair"><span>Fontes registradas</span><strong id="radar-sources">—</strong></div>
+                <div class="metric-pair"><span>Oportunidades observadas</span><strong id="radar-opportunities">—</strong></div>
+                <div class="metric-pair"><span>Ciclos de consulta</span><strong id="radar-cycles">—</strong></div>
+                <p class="muted small" id="radar-message">Consulta global somente de leitura em GitHub, Remote OK, Remotive e Arbeitnow.</p>
+              </article>
+
+              <article class="panel compact-panel" id="financeiro">
+                <div class="panel-title"><span class="round-icon teal">＄</span><h2>Financeiro</h2></div>
+                <div id="finance-breakdown"><div class="empty-state compact-empty">Entre para consultar o ledger.</div></div>
+                <div class="estimate-box"><span>Estimativa elegível</span><strong id="estimate-total">—</strong><small>Não representa dinheiro recebido.</small></div>
+              </article>
+
+              <article class="panel note-panel">
+                <span class="round-icon violet">i</span><div><strong>Atualização honesta</strong><p>O gráfico registra apenas leituras feitas enquanto esta tela está aberta. Nenhuma série histórica ou métrica é simulada.</p></div>
+              </article>
+            </aside>
+          </section>
+          </section>
+          <div id="module-pages"></div>
+          <footer class="page-footer">OASIS V2 · Modo REAL · <span id="footer-status">aguardando conexão</span></footer>
+        </div>
+      </main>
+    </div>
+
+    <section class="login-overlay" id="login-overlay" aria-labelledby="login-title" hidden>
+      <form class="login-card" id="login-form">
+        <span class="brand-mark login-mark" aria-hidden="true"><i></i></span>
+        <p class="eyebrow">ACESSO SEGURO</p><h2 id="login-title">Entrar na OASIS</h2>
+        <p class="muted">Use as credenciais configuradas neste servidor.</p>
+        <label for="username">Usuário</label><input id="username" name="username" autocomplete="username" required>
+        <label for="password">Senha</label><input id="password" name="password" type="password" autocomplete="current-password" required>
+        <button class="primary-button" type="submit">Entrar</button>
+        <p class="login-error" id="login-error" role="alert" hidden></p>
+        <p class="login-foot">A sessão fica apenas nesta aba e termina ao sair.</p>
+      </form>
+    </section>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
